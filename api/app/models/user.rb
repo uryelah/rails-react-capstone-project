@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-  belongs_to :meeting, optional: true
-
   has_secure_password
 
-  has_many :meets, foreign_key: :created_by
+  has_many :user_meets
+  has_many :user_meetings
+  has_many :meetings, through: :user_meetings
+  has_many :meets, through: :user_meets
+  has_many :created_meets, foreign_key: :created_by, class_name: 'Meet'
   validates_presence_of :name, :email, :password_digest
 end
