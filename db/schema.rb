@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_203320) do
+ActiveRecord::Schema.define(version: 2020_04_24_175028) do
 
   create_table "meetings", force: :cascade do |t|
     t.string "title"
@@ -37,11 +37,25 @@ ActiveRecord::Schema.define(version: 2020_04_23_203320) do
     t.string "created_by"
   end
 
+  create_table "user_meetings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "meeting_id", null: false
+    t.index ["meeting_id"], name: "index_user_meetings_on_meeting_id"
+    t.index ["user_id"], name: "index_user_meetings_on_user_id"
+  end
+
+  create_table "user_meets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "meet_id", null: false
+    t.index ["meet_id"], name: "index_user_meets_on_meet_id"
+    t.index ["user_id"], name: "index_user_meets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.integer "meeting_id", null: false
+    t.integer "meeting_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "picture"
@@ -49,5 +63,9 @@ ActiveRecord::Schema.define(version: 2020_04_23_203320) do
   end
 
   add_foreign_key "meetings", "meets"
+  add_foreign_key "user_meetings", "meetings"
+  add_foreign_key "user_meetings", "users"
+  add_foreign_key "user_meets", "meets"
+  add_foreign_key "user_meets", "users"
   add_foreign_key "users", "meetings"
 end
