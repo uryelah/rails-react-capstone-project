@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :password_digest
-      t.references :meeting, optional: true, foreign_key: true
 
       t.timestamps
     end
