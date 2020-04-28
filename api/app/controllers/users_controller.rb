@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
     skip_before_action :authorize_request, only: [:create, :index]
     def create
-        user = User.create!(user_params)
+        user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: 'Bob')
+
+        user.save()
 
         auth_token = AuthenticateUser.new(user.email, user.password).call
         response = { message: Message.account_created, auth_token: auth_token }
@@ -11,6 +13,11 @@ class UsersController < ApplicationController
     def index
         @users = User.all
         json_response(@users)
+    end
+
+    def show
+        @user = User.find(params[:id])
+        json_response(@user)
     end
     
     private

@@ -1,6 +1,4 @@
 class MeetsController < ApplicationController
-  skip_before_action :authorize_request
-
   before_action :set_meet, only: [:show, :update, :destroy]
 
   # GET /meets
