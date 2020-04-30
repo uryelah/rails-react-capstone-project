@@ -15,7 +15,10 @@ class MeetsController < ApplicationController
 
   # GET /meets/:id
   def show
-    json_response(@meet)
+    @user = User.find(@meet.created_by)
+    @meetings = @meet.meetings
+
+    json_response({ meet: @meet, user: @user, meetings: @meetings })
   end
 
   # PUT /meets/:id

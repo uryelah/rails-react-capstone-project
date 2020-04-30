@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
     skip_before_action :authorize_request, only: [:create, :index]
     def create
-        user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: 'Bob')
+        user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name])
 
-        user.save()
+        user.picture = 'https://joeschmoe.io/api/v1/random' if !user.picture || user.picture.empty?
+
+        user.save
 
         auth_token = AuthenticateUser.new(user.email, user.password).call
-        response = { message: Message.account_created, auth_token: auth_token }
+        response = { message: Message.account_created, auth_token: auth_token, user: user }
         json_response(response, :created)
     end
 
