@@ -16,7 +16,7 @@
 
   <h1 align="center">
     <a href="https://github.com/uryelah/rails-react-capstone-project">
-    Ao Kanji
+    Circle
     </a>
   </h1>
 
