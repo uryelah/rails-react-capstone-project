@@ -1,4 +1,5 @@
 class MeetsController < ApplicationController
+  skip_before_action :authorize_request, only: [:search, :index]
   before_action :set_meet, only: [:show, :update, :destroy]
 
   # GET /meets
@@ -31,6 +32,12 @@ class MeetsController < ApplicationController
   def destroy
     @meet.destroy
     head :no_content
+  end
+
+  def search
+    search_term = params[:term]
+    @meets = Meet.where('title like ? OR description like ?', "%#{search_term}%", "%#{search_term}%")
+    json_response(@meets)
   end
 
   private

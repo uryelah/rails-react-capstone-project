@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :user_meets, except: :show
 
+  get 'search/:term', to: 'meets#search'
   get 'user_meets/meets/:user_id', to: 'user_meets#show'
   get 'user_meets/users/:meet_id', to: 'user_meets#show'
   post 'auth/login', to: 'authentication#authenticate'
