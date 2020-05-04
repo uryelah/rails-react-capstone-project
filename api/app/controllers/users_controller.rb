@@ -1,9 +1,37 @@
 class UsersController < ApplicationController
     skip_before_action :authorize_request, only: [:create, :index]
     def create
-        user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name])
-
-        user.picture = 'https://joeschmoe.io/api/v1/random' if !user.picture || user.picture.empty?
+    people = [
+        "jabala",
+        "jane",
+        "jenni",
+        "josephine",
+        "jake",
+        "jerry",
+        "jai",
+        "julie",
+        "jude",
+        "jack",
+        "jolee",
+        "jean",
+        "jon",
+        "jacques",
+        "josh",
+        "jaqueline",
+        "james",
+        "jess",
+        "jazebelle",
+        "jeri",
+        "joe",
+        "jana",
+        "jodi",
+        "jordan",
+        "jocelyn",
+        "jeane",
+        "jed",
+        "jia"
+    ]
+        user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], picture: "https://joeschmoe.io/api/v1/#{people.sample}")
 
         user.save
 
