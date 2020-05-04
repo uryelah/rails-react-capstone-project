@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     resources :meetings
   end
 
+  resources :conversations, only: [:index, :create]
+  resources :messagems, only: [:create]
+  mount ActionCable.server => '/cable'
+
   resources :user_meets, except: :show
 
   get 'search/:term', to: 'meets#search'

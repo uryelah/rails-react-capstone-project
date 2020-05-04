@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_213607) do
+ActiveRecord::Schema.define(version: 2020_05_04_200114) do
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "meetings", force: :cascade do |t|
     t.string "title"
@@ -35,6 +41,14 @@ ActiveRecord::Schema.define(version: 2020_04_28_213607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "created_by"
+  end
+
+  create_table "messagems", force: :cascade do |t|
+    t.string "text"
+    t.integer "conversation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_messagems_on_conversation_id"
   end
 
   create_table "user_meetings", force: :cascade do |t|
@@ -63,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_213607) do
   end
 
   add_foreign_key "meetings", "meets"
+  add_foreign_key "messagems", "conversations"
   add_foreign_key "user_meetings", "meetings"
   add_foreign_key "user_meetings", "users"
   add_foreign_key "user_meets", "meets"
