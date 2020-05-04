@@ -1,3 +1,5 @@
+require 'json'
+
 class ConversationsController < ApplicationController
   def index
     conversations = Conversation.all
@@ -10,7 +12,7 @@ class ConversationsController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         ConversationSerializer.new(conversation)
       ).serializable_hash
-      ActionCable.server.broadcast 'conversations_channel', serialized_data
+      ActionCable.server.broadcast 'conversations_channel', conversation.to_json
       head :ok
     end
   end
