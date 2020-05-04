@@ -1,5 +1,6 @@
 development:
   adapter: redis
+  url: redis://redistogo:0729f84a9a0729b936ca4cb892@hoki.redistogo.com:9247/
 
 test:
   adapter: test
