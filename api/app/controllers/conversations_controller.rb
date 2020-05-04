@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         ConversationSerializer.new(conversation)
       ).serializable_hash
-      ActionCable.server.broadcast 'conversations_channel', conversation.to_json
+      ActionCable.server.broadcast 'conversations_channel', serialized_data
       head :ok
     end
   end
