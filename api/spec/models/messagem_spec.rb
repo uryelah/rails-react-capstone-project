@@ -1,5 +1,7 @@
 require 'rails_helper' # rubocop:disable Layout/EndOfLine
 
 RSpec.describe Messagem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:conversation) }
+  it { should validate_presence_of(:text) }
+  it { should validate_presence_of(:conversation_id) }
 end

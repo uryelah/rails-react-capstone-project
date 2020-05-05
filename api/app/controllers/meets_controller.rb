@@ -1,5 +1,4 @@
 class MeetsController < ApplicationController # rubocop:disable Layout/EndOfLine
-  skip_before_action :authorize_request, only: %i[search index]
   before_action :set_meet, only: %i[show update destroy]
 
   # GET /meets
@@ -44,7 +43,7 @@ class MeetsController < ApplicationController # rubocop:disable Layout/EndOfLine
 
   def meet_params
     # whitelist params
-    params.permit(:title, :description)
+    params.permit(:title, :description, :frequency, :duration, :day, :max_members, :created_by)
   end
 
   def set_meet

@@ -1,17 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Meets API', type: :request do
-  # initialize test data
   let!(:meets) { create_list(:meet, 10) }
   let(:meet_id) { meets.first.id }
+  let!(:users) { create_list(:user, 1) }
 
-  # Test suite for GET /meets
+  before { get '/meets', headers: authenticated_header(users.first) }
+
   describe 'GET /meets' do
-    # make HTTP get request before each example
-    before { get '/meets' }
-
     it 'returns meets' do
-      # Note `json` is a custom helper to parse JSON responses
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
     end
@@ -21,14 +18,13 @@ RSpec.describe 'Meets API', type: :request do
     end
   end
 
-  # Test suite for GET /meets/:id
   describe 'GET /meets/:id' do
-    before { get "/meets/#{meet_id}" }
+    before { get "/meets/#{meet_id}", headers: authenticated_header(users.first) }
 
     context 'when the record exists' do
       it 'returns the meet' do
         expect(json).not_to be_empty
-        expect(json['id']).to eq(meet_id)
+        expect(json['meet']['id']).to eq(meet_id)
       end
 
       it 'returns status code 200' do
@@ -49,13 +45,11 @@ RSpec.describe 'Meets API', type: :request do
     end
   end
 
-  # Test suite for POST /meets
   describe 'POST /meets' do
-    # valid payload
-    let(:valid_attributes) { { title: 'Learn Elm', description: 'This is a meeting for people learning Elm' } }
+    let(:valid_attributes) { { max_members: 10, created_by: users.first.id, duration: 2, day: 'Monday', frequency: 'Weekly', title: 'Learn Elm', description: 'This is a meeting for people learning Elm', max_members: 10 } }
 
     context 'when the request is valid' do
-      before { post '/meets', params: valid_attributes }
+      before { post '/meets', params: valid_attributes, headers: authenticated_header(users.first) }
 
       it 'creates a meet' do
         expect(json['title']).to eq('Learn Elm')
@@ -67,7 +61,7 @@ RSpec.describe 'Meets API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/meets', params: { title: 'Foobar' } }
+      before { post '/meets', params: { title: 'Foobar' }, headers: authenticated_header(users.first) }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -80,12 +74,11 @@ RSpec.describe 'Meets API', type: :request do
     end
   end
 
-  # Test suite for PUT /meets/:id
   describe 'PUT /meets/:id' do
     let(:valid_attributes) { { title: 'Shopping' } }
 
     context 'when the record exists' do
-      before { put "/meets/#{meet_id}", params: valid_attributes }
+      before { put "/meets/#{meet_id}", params: valid_attributes, headers: authenticated_header(users.first) }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -97,9 +90,8 @@ RSpec.describe 'Meets API', type: :request do
     end
   end
 
-  # Test suite for DELETE /meets/:id
   describe 'DELETE /meets/:id' do
-    before { delete "/meets/#{meet_id}" }
+    before { delete "/meets/#{meet_id}", headers: authenticated_header(users.first) }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
