@@ -46,7 +46,10 @@ RSpec.describe 'Meets API', type: :request do
   end
 
   describe 'POST /meets' do
-    let(:valid_attributes) { { max_members: 10, created_by: users.first.id, duration: 2, day: 'Monday', frequency: 'Weekly', title: 'Learn Elm', description: 'This is a meeting for people learning Elm', max_members: 10 } }
+    let(:valid_attributes) do
+      { max_members: 10, created_by: users.first.id, duration: 2, day: 'Monday',
+        frequency: 'Weekly', title: 'Learn Elm', description: 'This is a meeting for people learning Elm' }
+    end
 
     context 'when the request is valid' do
       before { post '/meets', params: valid_attributes, headers: authenticated_header(users.first) }

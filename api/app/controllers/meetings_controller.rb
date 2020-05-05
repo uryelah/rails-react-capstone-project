@@ -33,7 +33,7 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.permit(:title, :description)
+    params.permit(:title, :description, :date, :link)
   end
 
   def set_meet

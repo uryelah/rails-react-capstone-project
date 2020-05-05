@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Meetings API' do
-=begin
-  # Initialize the test data
+  let!(:users) { create_list(:user, 1) }
   let!(:meet) { create(:meet) }
   let!(:meetings) { create_list(:meeting, 20, meet_id: meet.id) }
   let(:meet_id) { meet.id }
@@ -10,7 +9,7 @@ RSpec.describe 'Meetings API' do
 
   # Test suite for GET /meets/:meet_id/meetings
   describe 'GET /meets/:meet_id/meetings' do
-    before { get "/meets/#{meet_id}/meetings" }
+    before { get "/meets/#{meet_id}/meetings", headers: authenticated_header(users.first) }
 
     context 'when meet exists' do
       it 'returns status code 200' do
@@ -35,9 +34,8 @@ RSpec.describe 'Meetings API' do
     end
   end
 
-  # Test suite for GET /meets/:meet_id/meetings/:id
   describe 'GET /meets/:meet_id/meetings/:id' do
-    before { get "/meets/#{meet_id}/meetings/#{id}" }
+    before { get "/meets/#{meet_id}/meetings/#{id}", headers: authenticated_header(users.first) }
 
     context 'when meet meeting exists' do
       it 'returns status code 200' do
@@ -57,17 +55,18 @@ RSpec.describe 'Meetings API' do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find meeting/)
+        expect(response.body).to match(/Couldn't find Meeting/)
       end
     end
   end
 
-  # Test suite for PUT /meets/:meet_id/meetings
   describe 'POST /meets/:meet_id/meetings' do
-    let(:valid_attributes) { { title: 'Visit Narnia', description: false } }
+    let(:valid_attributes) do
+      { title: 'Visit Narnia', description: false, date: Time.now + 1.day, link: 'https://zoom.com/fakelink' }
+    end
 
     context 'when request attributes are valid' do
-      before { post "/meets/#{meet_id}/meetings", params: valid_attributes }
+      before { post "/meets/#{meet_id}/meetings", params: valid_attributes, headers: authenticated_header(users.first) }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -75,7 +74,7 @@ RSpec.describe 'Meetings API' do
     end
 
     context 'when an invalid request' do
-      before { post "/meets/#{meet_id}/meetings", params: {} }
+      before { post "/meets/#{meet_id}/meetings", params: {}, headers: authenticated_header(users.first) }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -87,11 +86,12 @@ RSpec.describe 'Meetings API' do
     end
   end
 
-  # Test suite for PUT /meets/:meet_id/meetings/:id
   describe 'PUT /meets/:meet_id/meetings/:id' do
     let(:valid_attributes) { { title: 'Mozart' } }
 
-    before { put "/meets/#{meet_id}/meetings/#{id}", params: valid_attributes }
+    before do
+      put "/meets/#{meet_id}/meetings/#{id}", params: valid_attributes, headers: authenticated_header(users.first)
+    end
 
     context 'when meeting exists' do
       it 'returns status code 204' do
@@ -112,18 +112,16 @@ RSpec.describe 'Meetings API' do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find meeting/)
+        expect(response.body).to match(/Couldn't find Meeting/)
       end
     end
   end
 
-  # Test suite for DELETE /meets/:id
   describe 'DELETE /meets/:id' do
-    before { delete "/meets/#{meet_id}/meetings/#{id}" }
+    before { delete "/meets/#{meet_id}/meetings/#{id}", headers: authenticated_header(users.first) }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
-=end
 end
