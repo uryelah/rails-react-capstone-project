@@ -1,4 +1,4 @@
-class MessagemsChannel < ApplicationCable::Channel
+class MessagemsChannel < ApplicationCable::Channel # rubocop:disable Layout/EndOfLine
   def subscribed
     conversation = Conversation.find(params[:conversation])
     stream_for conversation

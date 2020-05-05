@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord # rubocop:disable Layout/EndOfLine
   has_secure_password
 
   has_many :user_meets, dependent: :destroy

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Meets API', type: :request do
-  # initialize test data 
+  # initialize test data
   let!(:meets) { create_list(:meet, 10) }
   let(:meet_id) { meets.first.id }
 

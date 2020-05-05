@@ -1,4 +1,4 @@
-class Meeting < ApplicationRecord
+class Meeting < ApplicationRecord # rubocop:disable Layout/EndOfLine
   belongs_to :meet
 
   has_many :user_meetings, dependent: :destroy

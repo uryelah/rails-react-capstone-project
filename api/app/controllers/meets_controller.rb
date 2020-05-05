@@ -1,6 +1,6 @@
-class MeetsController < ApplicationController
-  skip_before_action :authorize_request, only: [:search, :index]
-  before_action :set_meet, only: [:show, :update, :destroy]
+class MeetsController < ApplicationController # rubocop:disable Layout/EndOfLine
+  skip_before_action :authorize_request, only: %i[search index]
+  before_action :set_meet, only: %i[show update destroy]
 
   # GET /meets
   def index

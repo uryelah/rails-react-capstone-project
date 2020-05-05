@@ -1,14 +1,14 @@
 class UserMeet < ApplicationRecord
-    belongs_to :user
-    belongs_to :meet
+  belongs_to :user
+  belongs_to :meet
 
-    validate :is_uniq?
+  validate :is_uniq?
 
-    private
+  private
 
-    def is_uniq?
-      if UserMeet.where(user_id: user_id, meet_id: meet_id).count.positive?
-        errors.add(:repeated_record, 'The row should not be repeated')
-      end
-    end
+  def is_uniq? # rubocop:disable Naming/PredicateName
+    return unless UserMeet.where(user_id: user_id, meet_id: meet_id).count.positive?
+
+    errors.add(:repeated_record, 'The row should not be repeated')
+  end
 end

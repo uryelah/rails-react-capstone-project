@@ -1,5 +1,5 @@
 FactoryBot.define do
-    factory :meeting do
-      title { Faker::Lorem.question }
-    end
+  factory :meeting do
+    title { Faker::Lorem.question }
+  end
 end

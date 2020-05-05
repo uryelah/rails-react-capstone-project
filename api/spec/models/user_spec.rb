@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' # rubocop:disable Layout/EndOfLine
 
 RSpec.describe User, type: :model do
   it { should have_many(:meets) }
