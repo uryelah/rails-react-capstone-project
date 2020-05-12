@@ -1,0 +1,106 @@
+.main {
+  height: 100%;
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.side {
+  box-sizing: border-box;
+  color: #959595;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  pointer-events: all;
+  padding: 70px 0 30px 0;
+  width: 40vw;
+  z-index: 1;
+}
+
+.side ul {
+  list-style: none;
+  margin-top: 25px;
+  padding-left: 0;
+}
+
+.side li {
+  padding: 10px 30px;
+  transition: 0.25s cubic-bezier(0.77, 0, 0.175, 1);
+  width: 40%;
+}
+
+.side li:hover {
+  box-shadow: inset 4px 0 0 0 #ff5617;
+}
+
+.side li:hover a, .side li:hover button {
+  filter: brightness(0.8);
+}
+
+.profile {
+  padding: 0 30px;
+}
+
+.profile h3 {
+  color: #2e2e2e;
+  margin: 12px 0 2px 0;
+}
+
+.profile small, .profile h3 {
+  font-weight: 600;
+}
+
+.profile-picture {
+  display: flex;
+  height: 50px;
+  width: 50px;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.nav-footer {
+  align-items: flex-end;
+  display: flex;
+  height: 100%;
+  padding: 0 30px;
+}
+
+.nav-footer li {
+  box-shadow: -31px 0 0 0 #f7f5fa, -31px 0 0 -1px #ff5617;
+  padding: 10px 0;
+  width: 40vw;
+}
+
+.nav-footer li:first-child {
+  padding-top: 15px;
+  border-top: 1px solid#dddddd;
+}
+
+.nav-footer li:hover {
+  box-shadow: -26px 0 0 0 #f7f5fa, -31px 0 0 -1px #ff5617;
+}
+
+.nav-footer button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  opacity: inherit;
+  padding: 0;
+}
+
+.nick {
+  transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.nick:hover {
+  color: #ff5617;
+}

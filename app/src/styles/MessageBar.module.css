@@ -1,0 +1,46 @@
+.main {
+  border-top: 2px solid #dddddd;
+  display: flex;
+  height: 60px;
+  width: 100%;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  color: #959595;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  overflow-x: hidden;
+  padding: 0 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.input:focus {
+  color: #2e2e2e;
+}
+
+.send {
+  background-color: transparent;
+  border: none;
+  color: #959595;
+  cursor: pointer;
+  flex-basis: 90px;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.send:hover {
+  color: #ff5617;
+}
+
+.send:active {
+  filter: drop-shadow(0 1px 5px #ff5617);
+}
+
+.input, .send {
+  box-sizing: border-box;
+}
