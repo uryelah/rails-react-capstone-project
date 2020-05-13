@@ -13,7 +13,7 @@ const Nav = ({
 
   const [search, setSearch] = useState(searchOpen);
 
-  useEffect(() => {
+  const navToggler = () => {
     if (open) {
       parent.current.classList.add('off-to-the-side');
     } else {
@@ -31,7 +31,9 @@ const Nav = ({
       searchRef.current.parentElement.classList.remove('exposed');
       titleRef.current.parentElement.classList.remove('collapsed');
     }
-  }, [open, searchOpen, search]);
+  };
+
+  useEffect(navToggler, [open, searchOpen, search]);
 
   const clickHandler = () => {
     setNavOpen(!open);

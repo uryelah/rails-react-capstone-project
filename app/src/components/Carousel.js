@@ -16,7 +16,7 @@ const Carousel = ({
   let cardPerView = 0;
   let currentCard = 0;
 
-  useEffect(() => {
+  const checkLogged = () => {
     if (count < 1) { return; }
 
     scroller.current.scrollTo(0, 0);
@@ -29,7 +29,9 @@ const Carousel = ({
     if (controllers) {
       document.getElementById(`controller-${currentCard}`).classList.add('carousel__controller--on');
     }
-  }, [scroller]);
+  };
+
+  useEffect(checkLogged, [scroller]);
 
   const clickHandler = e => {
     const x = parseInt(e.target.dataset.x, 10);

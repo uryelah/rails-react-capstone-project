@@ -15,7 +15,7 @@ const Favorites = ({ state, actions, history }) => {
   const [navOpen, setNavOpen] = useState(false);
   const parent = useRef(null);
 
-  useEffect(() => {
+  const checkLogged = () => {
     if (state.authenticated
       && (!localStorage.getItem('token') || localStorage.getItem('token') === 'undefined')) {
       localStorage.setItem('token', state.authenticated);
@@ -42,7 +42,9 @@ const Favorites = ({ state, actions, history }) => {
         },
       });
     }
-  }, [state.authenticated]);
+  };
+
+  useEffect(checkLogged, [state.authenticated]);
 
   useEffect(() => {
     if (state.subscription) {

@@ -10,7 +10,8 @@ import page from '../styles/Page.module.css';
 const Page = ({
   history, state, actions, children,
 }) => {
-  useEffect(() => {
+
+  const checkLogged = () => {
     if (state.authenticated
       && (!localStorage.getItem('token') || localStorage.getItem('token') === 'undefined')) {
       localStorage.setItem('token', state.authenticated);
@@ -27,7 +28,9 @@ const Page = ({
     } else if (!state.authenticated) {
       history.push('/sign_in', state);
     }
-  }, []);
+  };
+
+  useEffect(checkLogged, []);
 
   return (
     <div className={page.main}>

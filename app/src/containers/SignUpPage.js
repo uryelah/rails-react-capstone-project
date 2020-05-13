@@ -15,7 +15,7 @@ const SignUpPage = ({
 
   const form = useRef(null);
 
-  useEffect(() => {
+  const checkLogged = () => {
     if (state.authenticated
       && (!localStorage.getItem('token') || localStorage.getItem('token') === 'undefined')) {
       history.push('/list', state);
@@ -33,7 +33,9 @@ const SignUpPage = ({
     } else if (state.authenticated) {
       history.push('/list', state);
     }
-  }, [state.authenticated]);
+  };
+
+  useEffect(checkLogged, [state.authenticated]);
 
   const handleSubmit = async formContent => {
     if (type === 'IN') {

@@ -12,14 +12,16 @@ import Loader from '../components/Loader';
 const List = ({ actions, state }) => {
   const parent = useRef(null);
 
-  useEffect(() => {
+  const fetchSubs = () => {
     const token = localStorage.getItem('token');
     actions.fetchSubscription('https://aqueous-wildwood-18424.herokuapp.com/meets', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-  }, []);
+  };
+
+  useEffect(fetchSubs, []);
 
   const [navOpen, setNavOpen] = useState(false);
 

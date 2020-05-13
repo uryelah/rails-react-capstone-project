@@ -14,14 +14,16 @@ import ChatPals from '../components/ChatPals';
 const Messages = ({ actions, state }) => {
   const parent = useRef(null);
 
-  useEffect(() => {
+  const checkLogged = () => {
     const token = localStorage.getItem('token');
     actions.fetchSubscription('https://aqueous-wildwood-18424.herokuapp.com/meets', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-  }, []);
+  };
+
+  useEffect(checkLogged, []);
 
   const [navOpen, setNavOpen] = useState(false);
 

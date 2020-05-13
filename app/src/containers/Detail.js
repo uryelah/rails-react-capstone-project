@@ -17,21 +17,9 @@ const Detail = ({
   const [fullText, setFullText] = useState(false);
   const [item, setItem] = useState(null);
 
-  if (state.subscription) {
-    const creator = state.subscription.user;
-  }
-
-  if (state.subscription && state.subscription.user) {
-    const { name, picture } = state.subscription.user;
-    const { meetings } = state.subscription;
-  }
   const parent = useRef(null);
 
-  if (state.currentUser) {
-    const current_user = state.currentUser.id;
-  }
-
-  useEffect(() => {
+  const checkLogged = () => {
     if (state.authenticated
         && localStorage.getItem('token')
         && localStorage.getItem('token') !== 'undefined'
@@ -43,7 +31,9 @@ const Detail = ({
         },
       });
     }
-  }, [state.authenticated]);
+  };
+
+  useEffect(checkLogged, [state.authenticated]);
 
   useEffect(() => {
     if (state.subscription && state.subscription.meet) {

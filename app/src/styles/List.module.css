@@ -66,9 +66,11 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
-  height: calc(55vh + 60px);
   padding: 25px 20px;
   width: 100%;
+  flex-shrink: 1;
+  max-height: 60vh;
+  min-height: 40vh;
 }
 
 .profile-picture {
@@ -105,10 +107,11 @@
 .down {
   composes: down from "./LandingPage.module.css";
   padding: 10px 0 20px 0;
-  position: relative;
   height: 15%;
   max-height: 51px;
   transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: absolute;
+  bottom: 64px;
 }
 
 .main--details--open .down {

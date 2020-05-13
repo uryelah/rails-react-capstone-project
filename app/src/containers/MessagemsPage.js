@@ -9,7 +9,7 @@ import Messagems from './Messagems';
 import Wip from '../components/Wip';
 
 function MessagemsPage({ state, actions, history }) {
-  useEffect(() => {
+  const checkLogged = () => {
     if (state.authenticated
       && (!localStorage.getItem('token') || localStorage.getItem('token') === 'undefined')) {
       localStorage.setItem('token', state.authenticated);
@@ -26,7 +26,9 @@ function MessagemsPage({ state, actions, history }) {
     } else if (!state.authenticated) {
       history.push('/sign_in', state);
     }
-  }, [state.authenticated]);
+  };
+
+  useEffect(checkLogged, [state.authenticated]);
 
   return (
     <div style={{
