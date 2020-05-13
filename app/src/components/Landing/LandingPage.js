@@ -11,7 +11,7 @@ import Carousel from '../Carousel';
 
 function LandingPage() {
   return (
-    <div className={app.main}>
+    <div className={app.main} style={{ overflowY: 'scroll', height: '100vh' }}>
       <NavBar />
       <Header />
       <Section>
