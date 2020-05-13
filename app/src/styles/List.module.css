@@ -68,7 +68,7 @@
   justify-content: space-between;
   height: calc(55vh + 60px);
   padding: 25px 20px;
-  width: 100vw;
+  width: 100%;
 }
 
 .profile-picture {

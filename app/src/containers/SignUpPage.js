@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter, Link } from 'react-router-dom';
 import * as houseActions from '../actions/houseActions';
 import signup from '../styles/SignUpPage.module.css';
-import Alert from './Alert';
-import Loader from './Loader';
+import Alert from '../components/Alert';
+import Loader from '../components/Loader';
 
 const SignUpPage = ({
   history, type, actions, state,

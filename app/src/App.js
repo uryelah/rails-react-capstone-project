@@ -3,13 +3,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LandingPage from './components/Landing/LandingPage';
-import SignUpPage from './components/SignUpPage';
-import Favorites from './components/Favorites';
-import MessagemsPage from './components/MessagemsPage';
-import SearchPage from './components/SearchPage';
-import Page from './components/Page';
-import List from './components/List';
-import Detail from './components/Detail';
+import SignUpPage from './containers/SignUpPage';
+import Favorites from './containers/Favorites';
+import MessagemsPage from './containers/MessagemsPage';
+import SearchPage from './containers/SearchPage';
+import Page from './containers/Page';
+import List from './containers/List';
+import Detail from './containers/Detail';
 import ConversationsList from './components/ConversationsList';
 
 const App = () => (

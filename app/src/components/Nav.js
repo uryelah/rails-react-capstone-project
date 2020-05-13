@@ -117,13 +117,13 @@ Nav.propTypes = {
   searchOpen: PropTypes.bool,
   local: PropTypes.string,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
-  state: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 Nav.defaultProps = {
   open: false,
   searchOpen: false,
   local: '',
+  state: {},
 };
 
 export default withRouter(Nav);

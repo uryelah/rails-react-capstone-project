@@ -2,6 +2,7 @@
   background-color: #e7f0ff;
   height: 100%;
   min-height: max-content;
+  position: relative;
 }
 
 .header {

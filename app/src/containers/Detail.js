@@ -5,10 +5,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as houseActions from '../actions/houseActions';
-import Nav from './Nav';
+import Nav from '../components/Nav';
 import list from '../styles/List.module.css';
-import Stars from './Stars';
-import Loader from './Loader';
+import Stars from '../components/Stars';
+import Loader from '../components/Loader';
 
 const Detail = ({
   state, actions, history, match,
@@ -131,7 +131,7 @@ const Detail = ({
                 { item.title }
                 <button onClick={handleFavorite} className="btn btn-transparent" type="button">Add to favorites</button>
               </h4>
-              <p className={list[!fullText ? 'summary--min' : 'summary']}>
+              <div className={list[!fullText ? 'summary--min' : 'summary']}>
                 { item.description }
                 <hr />
                 <h5>Next Meetings</h5>
@@ -149,7 +149,7 @@ const Detail = ({
                     </a>
                   </div>
                 )) }
-              </p>
+              </div>
               <div
                 role="button"
                 onClick={clickHandler}

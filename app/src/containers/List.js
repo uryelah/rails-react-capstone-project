@@ -4,10 +4,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as houseActions from '../actions/houseActions';
-import Nav from './Nav';
-import Carousel from './Carousel';
+import Nav from '../components/Nav';
+import Carousel from '../components/Carousel';
 import list from '../styles/List.module.css';
-import Loader from './Loader';
+import Loader from '../components/Loader';
 
 const List = ({ actions, state }) => {
   const parent = useRef(null);

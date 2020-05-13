@@ -1,18 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as houseActions from '../actions/houseActions';
-import Loader from './Loader';
-import Nav from './Nav';
+import Nav from '../components/Nav';
+import Loader from '../components/Loader';
 import CarouselCard from './CarouselCard';
 import list from '../styles/List.module.css';
 import fav from '../styles/Favorites.module.css';
 
-function SearchPage({
-  history, match, state, actions,
-}) {
+const Favorites = ({ state, actions, history }) => {
   const [items, setItems] = useState(null);
   const [navOpen, setNavOpen] = useState(false);
   const parent = useRef(null);
@@ -38,7 +36,7 @@ function SearchPage({
     ) {
       const token = localStorage.getItem('token');
 
-      actions.fetchSubscription(`https://aqueous-wildwood-18424.herokuapp.com/search/${match.params.term}`, {
+      actions.fetchSubscription(`https://aqueous-wildwood-18424.herokuapp.com/user_meets/meets/${state.currentUser.id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -48,24 +46,24 @@ function SearchPage({
 
   useEffect(() => {
     if (state.subscription) {
-      setItems(state.subscription);
+      setItems(state.subscription.res);
     }
   }, [state.subscription]);
 
   return (
-    <div className={list['wrapper--favorites']} ref={parent}>
-      <Nav open={navOpen} setNavOpen={setNavOpen} parent={parent} searchOpen={false} local="Search" />
+    <main className={list['wrapper--favorites']} ref={parent}>
+      <Nav open={navOpen} setNavOpen={setNavOpen} parent={parent} searchOpen={false} local="Favorites" />
       {
         items
           ? (
-            <main className={fav.main} style={{ width: '100%' }}>
+            <main className={fav.main}>
               {items.length && items.length > 0
                 ? items.map(item => (
                   <CarouselCard key={item.id} id={`card-${item.id}`} item={item} name={item.name} type="product" history={history} state={state} />
                 ))
                 : (
-                  <div className={list.title} style={{ flexDirection: 'column', textAlign: 'center' }}>
-                    <h1>Nothing found</h1>
+                  <div className={list.title} style={{ flexDirection: 'column' }}>
+                    <h1>You have not favorited any meet yet</h1>
                     <p><a href="/list">Check out the current meets here</a></p>
                   </div>
                 )}
@@ -73,9 +71,9 @@ function SearchPage({
           )
           : (<Loader />)
       }
-    </div>
+    </main>
   );
-}
+};
 
 function mapStateToProps({ state }) {
   return { state: { ...state } };
@@ -87,11 +85,10 @@ function mapActionsToProps(dispatch) {
   };
 }
 
-SearchPage.propTypes = {
+Favorites.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
-  match: PropTypes.objectOf(PropTypes.any).isRequired,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(withRouter(SearchPage));
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(Favorites));

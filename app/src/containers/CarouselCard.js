@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Stars from './Stars';
+import Stars from '../components/Stars';
 import app from '../styles/LandingPage.module.css';
 
 const CarouselCard = ({
@@ -109,11 +109,15 @@ function mapStateToProps({ state }) {
 
 CarouselCard.propTypes = {
   id: PropTypes.string.isRequired,
-  item: PropTypes.objectOf(PropTypes.any).isRequired,
-  name: PropTypes.string.isRequired,
+  item: PropTypes.PropTypes.any.isRequired,
+  name: PropTypes.string,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
   type: PropTypes.string.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
+
+CarouselCard.defaultProps = {
+  name: '',
+}
 
 export default connect(mapStateToProps, null)(withRouter(CarouselCard));

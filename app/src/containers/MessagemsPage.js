@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as houseActions from '../actions/houseActions';
 import HiddenNav from './HiddenNav';
 import Messagems from './Messagems';
-import Wip from './Wip';
+import Wip from '../components/Wip';
 
 function MessagemsPage({ state, actions, history }) {
   useEffect(() => {

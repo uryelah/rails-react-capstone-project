@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as houseActions from '../actions/houseActions';
-import Nav from './Nav';
-import Loader from './Loader';
-import Chat from './Chat';
+import Nav from '../components/Nav';
+import Loader from '../components/Loader';
+import Chat from '../components/Chat';
 import list from '../styles/List.module.css';
 import chat from '../styles/Chat.module.css';
-import MessageBar from './MessageBar';
-import ChatPals from './ChatPals';
+import MessageBar from '../components/MessageBar';
+import ChatPals from '../components/ChatPals';
 
 const Messages = ({ actions, state }) => {
   const parent = useRef(null);

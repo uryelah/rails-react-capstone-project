@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import app from '../styles/LandingPage.module.css';
-import CarouselCard from './CarouselCard';
+import CarouselCard from '../containers/CarouselCard';
 
 const Carousel = ({
   count, chat, controllers, users, list,
@@ -141,7 +141,7 @@ const Carousel = ({
       case 'testemunial':
         return (
           <div className={app.carousel__controllers}>
-            {[...new Array(count)].map((item, i) => <div key={item} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Carousel controller" onKeyDown={keyDownHandler} onClick={clickHandler} className="carousel__controller" />)}
+            {[...new Array(count)].map((item, i) => <div key={`${i}-test`} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Carousel controller" onKeyDown={keyDownHandler} onClick={clickHandler} className="carousel__controller" />)}
           </div>
         );
       default:
@@ -155,7 +155,7 @@ const Carousel = ({
 
   return (
     <div onScroll={scrollHandler} ref={scroller} className={app[chat ? 'content--carousel--chat' : 'content--carousel']}>
-      {count > 0 && list && [...list].map((item, i) => <CarouselCard key={item.id} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={controllers ? 'testemunial' : (chat ? 'chat' : 'product')} />)}
+      {count > 0 && list && [...list].map((item, i) => <CarouselCard key={`${i}-list`} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={controllers ? 'testemunial' : (chat ? 'chat' : 'product')} />)}
 
       {count > 0 && chat && [...users].map((item, i) => <CarouselCard key={item.id} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={controllers ? 'testemunial' : (chat ? 'chat' : 'product')} />)}
 
@@ -165,11 +165,18 @@ const Carousel = ({
 };
 
 Carousel.propTypes = {
-  count: PropTypes.number.isRequired,
-  chat: PropTypes.bool.isRequired,
-  controllers: PropTypes.bool.isRequired,
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
-  users: PropTypes.arrayOf(PropTypes.object).isRequired,
+  count: PropTypes.number,
+  chat: PropTypes.bool,
+  list: PropTypes.any,
+  users: PropTypes.arrayOf(PropTypes.object),
 };
+
+Carousel.defaultProps = {
+  chat: null,
+  controllers: null,
+  count: 0,
+  list: [],
+  users: [],
+}
 
 export default Carousel;
