@@ -116,6 +116,7 @@ Nav.propTypes = {
   open: PropTypes.bool,
   setNavOpen: PropTypes.func.isRequired,
   parent: PropTypes.objectOf(PropTypes.any).isRequired,
+  state: PropTypes.objectOf(PropTypes.any),
   searchOpen: PropTypes.bool,
   local: PropTypes.string,
   history: PropTypes.objectOf(PropTypes.any).isRequired,

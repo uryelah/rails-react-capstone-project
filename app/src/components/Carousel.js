@@ -79,7 +79,8 @@ const Carousel = ({
       }
       document.getElementById(`card-${scrollTo}`).classList.add('carousel__item--active');
       document.getElementById(`controller-${scrollTo}`).classList.add('carousel__controller--on');
-      if (scrollTo === count - 2 && scroller.current.scrollLeftMax - scroller.current.scrollLeft >= 4) {
+      if (scrollTo === count - 2
+        && scroller.current.scrollLeftMax - scroller.current.scrollLeft >= 4) {
         document.getElementById(`card-${count - 1}`).classList.remove('carousel__item--active');
         document.getElementById(`controller-${count - 1}`).classList.remove('carousel__controller--on');
       }
@@ -143,7 +144,7 @@ const Carousel = ({
       case 'testemunial':
         return (
           <div className={app.carousel__controllers}>
-            {[...new Array(count)].map((item, i) => <div key={`${i}-test`} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Carousel controller" onKeyDown={keyDownHandler} onClick={clickHandler} className="carousel__controller" />)}
+            {[...new Array(count)].map((item, i) => <div key={`${item}-test`} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Carousel controller" onKeyDown={keyDownHandler} onClick={clickHandler} className="carousel__controller" />)}
           </div>
         );
       default:
@@ -169,16 +170,17 @@ const Carousel = ({
 Carousel.propTypes = {
   count: PropTypes.number,
   chat: PropTypes.bool,
-  list: PropTypes.any,
+  list: PropTypes.objectOf(PropTypes.any),
   users: PropTypes.arrayOf(PropTypes.object),
+  controllers: PropTypes.bool,
 };
 
 Carousel.defaultProps = {
   chat: null,
-  controllers: null,
+  controllers: false,
   count: 0,
   list: [],
   users: [],
-}
+};
 
 export default Carousel;
