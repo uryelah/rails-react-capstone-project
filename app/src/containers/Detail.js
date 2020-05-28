@@ -21,8 +21,8 @@ const Detail = ({
 
   const checkLogged = () => {
     if (state.authenticated
-        && localStorage.getItem('token')
-        && localStorage.getItem('token') !== 'undefined'
+      && localStorage.getItem('token')
+      && localStorage.getItem('token') !== 'undefined'
     ) {
       const token = localStorage.getItem('token');
       actions.fetchSubscription(`https://aqueous-wildwood-18424.herokuapp.com/meets/${match.params.id}`, {
@@ -75,11 +75,11 @@ const Detail = ({
       },
       credentials: 'same-origin',
     })
-      .then(res => res.json()).then(_json => {
-        history.push('/favorites/');
+      .then(res => res.json()).then(json => {
+        history.push('/favorites/', { data: json });
       })
       .catch(error => {
-        console.log(error);
+        throw error;
       });
   };
 
@@ -87,7 +87,7 @@ const Detail = ({
     <div className={list['wrapper--details']} ref={parent}>
       <Nav open={navOpen} setNavOpen={setNavOpen} parent={parent} searchOpen={false} local="Detail" />
 
-      { item
+      {item
         ? (
           <main className={list[!fullText ? 'main--details' : 'main--details--open']}>
             <div className={list.image}>
@@ -118,14 +118,14 @@ const Detail = ({
             </div>
             <div className={list.description}>
               <h4 className={list.title}>
-                { item.title }
+                {item.title}
                 <button onClick={handleFavorite} className="btn btn-transparent" type="button">Add to favorites</button>
               </h4>
               <div className={list[!fullText ? 'summary--min' : 'summary']}>
-                { item.description }
+                {item.description}
                 <hr />
                 <h5>Next Meetings</h5>
-                { state.subscription.meetings.map(meeting => (
+                {state.subscription.meetings.map(meeting => (
                   <div key={meeting.id}>
                     <h6 className={list['meeting-title']}>{meeting.title}</h6>
                     <em>{Date(meeting.date)}</em>
@@ -138,7 +138,7 @@ const Detail = ({
                       Meeting link
                     </a>
                   </div>
-                )) }
+                ))}
               </div>
               <div
                 role="button"
@@ -149,17 +149,17 @@ const Detail = ({
                 onKeyDown={keyDownHandler}
               >
                 {
-                !fullText
-                  ? (
-                    <svg className={list['down-arrow']} aria-hidden="true" focusable="true" data-prefix="fal" data-icon="chevron-down" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                      <path fill="currentColor" d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z" className="" />
-                    </svg>
-                  ) : (
-                    <svg className={list['down-arrow']} aria-hidden="true" focusable="true" data-prefix="fal" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                      <path fill="currentColor" d="M4.465 366.475l7.07 7.071c4.686 4.686 12.284 4.686 16.971 0L224 178.053l195.494 195.493c4.686 4.686 12.284 4.686 16.971 0l7.07-7.071c4.686-4.686 4.686-12.284 0-16.97l-211.05-211.051c-4.686-4.686-12.284-4.686-16.971 0L4.465 349.505c-4.687 4.686-4.687 12.284 0 16.97z" className="" />
-                    </svg>
-                  )
-              }
+                  !fullText
+                    ? (
+                      <svg className={list['down-arrow']} aria-hidden="true" focusable="true" data-prefix="fal" data-icon="chevron-down" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z" className="" />
+                      </svg>
+                    ) : (
+                      <svg className={list['down-arrow']} aria-hidden="true" focusable="true" data-prefix="fal" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M4.465 366.475l7.07 7.071c4.686 4.686 12.284 4.686 16.971 0L224 178.053l195.494 195.493c4.686 4.686 12.284 4.686 16.971 0l7.07-7.071c4.686-4.686 4.686-12.284 0-16.97l-211.05-211.051c-4.686-4.686-12.284-4.686-16.971 0L4.465 349.505c-4.687 4.686-4.687 12.284 0 16.97z" className="" />
+                      </svg>
+                    )
+                }
 
               </div>
               <button onClick={handleClick} className="btn btn--orange--full" type="button">

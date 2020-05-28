@@ -109,7 +109,7 @@ function mapStateToProps({ state }) {
 
 CarouselCard.propTypes = {
   id: PropTypes.string.isRequired,
-  item: PropTypes.PropTypes.any.isRequired,
+  item: PropTypes.objectOf(PropTypes.any).isRequired,
   name: PropTypes.string,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
   type: PropTypes.string.isRequired,
@@ -118,6 +118,6 @@ CarouselCard.propTypes = {
 
 CarouselCard.defaultProps = {
   name: '',
-}
+};
 
 export default connect(mapStateToProps, null)(withRouter(CarouselCard));
