@@ -10,7 +10,6 @@ import page from '../styles/Page.module.css';
 const Page = ({
   history, state, actions, children,
 }) => {
-
   const checkLogged = () => {
     if (state.authenticated
       && (!localStorage.getItem('token') || localStorage.getItem('token') === 'undefined')) {
@@ -34,7 +33,7 @@ const Page = ({
 
   return (
     <div className={page.main}>
-      { children }
+      {children}
       <HiddenNav />
     </div>
   );
