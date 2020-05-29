@@ -65,40 +65,18 @@ const CarouselCard = ({
             </div>
           </>
         );
-      case 'testemunial':
-        return (
-          <>
-            <img className={app['profile-pic']} src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Profile picure" />
-            <h4 className={app['card-title']}>Kate Swome</h4>
-            <small>Designer</small>
-            <p className={app['card-description']}>
-              <q>
-                "Circle is an excellent service to use and already a part of my weekly routine.
-                I finally have people I enjoy the company of and can be myself with."
-              </q>
-            </p>
-          </>
-        );
       default:
         return (
           <>
-            <img className={app['profile-pic']} src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Profile picure" />
-            <h4 className={app['card-title']}>Kate Swome</h4>
-            <small>Designer</small>
-            <p className={app['card-description']}>
-              <q>
-                "Circle is an excellent service to use and already a part of my weekly routine.
-                I finally have people I enjoy the company of and can be myself with."
-              </q>
-            </p>
+            <img className={app['profile-pic--chat']} src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Profile picure" />
           </>
         );
     }
   };
 
   return (
-    <div id={id} data-name={name} className={app[type === 'testemunial' ? 'carousel__item' : (type === 'chat' ? 'carousel__item--user' : 'carousel__item--product')]}>
-      { content(type) }
+    <div id={id} data-name={name} className={app[type === 'chat' ? 'carousel__item--user' : 'carousel__item--product']}>
+      {content(type)}
     </div>
   );
 };

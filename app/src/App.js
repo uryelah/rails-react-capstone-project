@@ -10,7 +10,6 @@ import SearchPage from './containers/SearchPage';
 import Page from './containers/Page';
 import List from './containers/List';
 import Detail from './containers/Detail';
-import ConversationsList from './components/ConversationsList';
 
 const App = () => (
   <Switch>
@@ -21,7 +20,6 @@ const App = () => (
     <Route exact path="/messages" component={MessagemsPage} />
     <Route exact path="/sign_up/" render={() => <SignUpPage {...{ type: 'UP' }} />} />
     <Route exact path="/sign_in/" render={() => <SignUpPage {...{ type: 'IN' }} />} />
-    <Route path="/temp-chat" component={ConversationsList} />
     <Route path="/" component={LandingPage} />
   </Switch>
 );

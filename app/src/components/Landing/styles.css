@@ -1,0 +1,12 @@
+.slider {
+  width: 100%;
+}
+
+.carousel-row div {
+  display: flex !important;
+  justify-content: center;
+}
+
+.slider .carousel-initialized {
+  overflow: visible;
+}

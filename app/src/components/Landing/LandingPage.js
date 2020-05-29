@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Link } from 'react-router-dom';
+import Slider from 'infinite-react-carousel';
 import NavBar from './NavBar';
 import app from '../../styles/LandingPage.module.css';
 import notebook from '../../images/notebook.png';
@@ -7,15 +8,25 @@ import mobile from '../../images/mobile.png';
 import Footer from './Footer';
 import Header from './Header';
 import Section from './Section';
-import Carousel from '../Carousel';
+import users from '../../helpers/mocks';
+import TestemonyCard from './TestemonyCard';
+import './styles.css';
 
 function LandingPage() {
+  const ref = React.createRef();
+
+  const handleClick = () =>
+  ref.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+
   return (
     <div className={app.main} style={{ overflowY: 'scroll', height: '100vh' }}>
       <NavBar />
-      <Header />
+      <Header onClick={handleClick} />
       <Section>
-        <div className={app['content--top']}>
+        <div ref={ref} className={app['content--top']}>
           <small className={app['title-tip']}>Simple and fast way to socialize</small>
           <h3 className={app.title}>Friendly chats with reliable people</h3>
         </div>
@@ -59,7 +70,15 @@ function LandingPage() {
           <small className={app['title-tip']}>People are already enjoying the service</small>
           <h3 className={app.title}>Look at what people have to say</h3>
         </div>
-        <Carousel controllers count={10} list={new Array(10).fill([])} />
+        <Slider className="slider" pauseOnHover={true} slidesPerRow={1} arrows={false} dots swipe={true} autoplay={true} autoplaySpeed={5000}>
+          {
+            users.map(item => (
+              <div key={item.id} style={{ display: 'flex', justifyContent: 'center' }}>
+                <TestemonyCard id={item.id} name={item.name} pic={item.pic} profession={item.profession} quote={item.quote}/>
+              </div>
+            ))
+          }
+        </Slider>
       </Section>
 
       <Section column="column" transparent="transparent" header="header">
