@@ -126,25 +126,12 @@ const Carousel = ({
 
   const controllerElement = type => {
     switch (type) {
-      case 'chat':
-        return (
-          <div className={app['count--chat']}>
-            <span ref={counter}>1</span>
-            {users.map((user, i) => (<div onClick={clickHandler} key={user.id} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Chat friend name" className="carousel__controller--chat">{user.name}</div>))}
-          </div>
-        );
       case 'product':
         return (
           <div className={app.count}>
             <span ref={counter}>1</span>
             /
             {count}
-          </div>
-        );
-      case 'testemunial':
-        return (
-          <div className={app.carousel__controllers}>
-            {[...new Array(count)].map((item, i) => <div key={`${item}-test`} data-x={i * width} id={`controller-${i}`} role="button" tabIndex={-1} aria-label="Carousel controller" onKeyDown={keyDownHandler} onClick={clickHandler} className="carousel__controller" />)}
           </div>
         );
       default:
@@ -158,11 +145,9 @@ const Carousel = ({
 
   return (
     <div onScroll={scrollHandler} ref={scroller} className={app[chat ? 'content--carousel--chat' : 'content--carousel']}>
-      {count > 0 && list && [...list].map((item, i) => <CarouselCard key={`${i}-list`} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={controllers ? 'testemunial' : (chat ? 'chat' : 'product')} />)}
+      {count > 0 && list && [...list].map((item, i) => <CarouselCard key={`${item.id}-list`} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={chat ? 'chat' : 'product'} />)}
 
-      {count > 0 && chat && [...users].map((item, i) => <CarouselCard key={item.id} item={item} id={`card-${i}`} name={users && users.length ? users[i].name : null} type={controllers ? 'testemunial' : (chat ? 'chat' : 'product')} />)}
-
-      {count > 0 && controllerElement(controllers ? 'testemunial' : (chat ? 'chat' : 'product')) }
+      {count > 0 && controllerElement(chat ? 'chat' : 'product') }
     </div>
   );
 };
@@ -170,7 +155,7 @@ const Carousel = ({
 Carousel.propTypes = {
   count: PropTypes.number,
   chat: PropTypes.bool,
-  list: PropTypes.objectOf(PropTypes.any),
+  list: PropTypes.arrayOf(PropTypes.any),
   users: PropTypes.arrayOf(PropTypes.object),
   controllers: PropTypes.bool,
 };

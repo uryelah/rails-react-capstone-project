@@ -15,6 +15,7 @@
         "airbnb",
         "plugin:react/recommended"
     ],
+    "ignorePatterns": ["build/"],
     "plugins": [
         "react"
     ],

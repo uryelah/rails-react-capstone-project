@@ -13,10 +13,9 @@ import TestemonyCard from './TestemonyCard';
 import './styles.css';
 
 function LandingPage() {
-  const ref = React.createRef();
+  const ref = createRef();
 
-  const handleClick = () =>
-  ref.current.scrollIntoView({
+  const handleClick = () => ref.current.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
   });
@@ -70,11 +69,17 @@ function LandingPage() {
           <small className={app['title-tip']}>People are already enjoying the service</small>
           <h3 className={app.title}>Look at what people have to say</h3>
         </div>
-        <Slider className="slider" pauseOnHover={true} slidesPerRow={1} arrows={false} dots swipe={true} autoplay={true} autoplaySpeed={5000}>
+        <Slider className="slider" pauseOnHover slidesPerRow={1} arrows={false} dots swipe autoplay autoplaySpeed={5000}>
           {
             users.map(item => (
               <div key={item.id} style={{ display: 'flex', justifyContent: 'center' }}>
-                <TestemonyCard id={item.id} name={item.name} pic={item.pic} profession={item.profession} quote={item.quote}/>
+                <TestemonyCard
+                  id={item.id}
+                  name={item.name}
+                  pic={item.pic}
+                  profession={item.profession}
+                  quote={item.quote}
+                />
               </div>
             ))
           }

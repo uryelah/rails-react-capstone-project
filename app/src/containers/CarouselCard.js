@@ -32,16 +32,19 @@ const CarouselCard = ({
       case 'product':
         return (
           <>
-            <img
+            <div
               onClick={clickHandler}
-              className={app['product-pic']}
-              src="https://static01.nyt.com/images/2020/01/08/realestate/08IHH-URUGUAY-slide-NAQ6/08IHH-URUGUAY-slide-NAQ6-mobileMasterAt3x.jpg"
-              alt="Product"
               tabIndex={-1}
               aria-label="Product"
               onKeyDown={keyDownHandler}
               role="button"
-            />
+            >
+              <img
+                className={app['product-pic']}
+                src="https://static01.nyt.com/images/2020/01/08/realestate/08IHH-URUGUAY-slide-NAQ6/08IHH-URUGUAY-slide-NAQ6-mobileMasterAt3x.jpg"
+                alt="Product"
+              />
+            </div>
             <div className={app['product-summary']}>
               <div className={app['summary-left']}>
                 <h4 className={app['card-title']}>{title}</h4>
