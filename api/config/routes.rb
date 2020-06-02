@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :meets do
+    resources :meetings
+  end
+
+  resources :user_meets, except: :show
+
+  get 'search/:term', to: 'meets#search'
+  get 'user_meets/meets/:user_id', to: 'user_meets#show'
+  get 'user_meets/users/:meet_id', to: 'user_meets#show'
+  post 'auth/login', to: 'authentication#authenticate'
+  post 'auth/signup', to: 'users#create'
+  get 'users', to: 'users#index'
+  get 'users/:id', to: 'users#show'
 end
