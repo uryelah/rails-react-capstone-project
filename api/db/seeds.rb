@@ -10,16 +10,16 @@ User.create(name: 'Jo', email: 'jo@mail.com', password: '123abc', picture: 'http
 
 12.times do |i|
   meet = sarah.meets.create(title: "Support meeting - #{i}",
-    description: 'This is a meeting for the members unnable to leave...',
-    frequency: 'weekly',
-    duration: 1.5,
-    day: 'Wednesday',
-    members: 20,
-    max_members: 24,
-    created_by: sarah.id)
+                            description: 'This is a meeting for the members unnable to leave...',
+                            frequency: 'weekly',
+                            duration: 1.5,
+                            day: 'Wednesday',
+                            members: 20,
+                            max_members: 24,
+                            created_by: sarah.id)
   meet.meetings.create(title: 'Next meeting',
-    description: '...',
-    date: Date.new() + 10.days,
-    confirmed_members: 0,
-    link: 'https://microverse.zoom.us/j/76632873333')
+                       description: '...',
+                       date: Date.new + 10.days,
+                       confirmed_members: 0,
+                       link: 'https://microverse.zoom.us/j/76632873333')
 end
