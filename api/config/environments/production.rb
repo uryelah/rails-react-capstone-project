@@ -82,7 +82,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.web_socket_server_url = "wss://aqueous-wildwood-18424.herokuapp.com/cable" 
+  config.web_socket_server_url = 'wss://aqueous-wildwood-18424.herokuapp.com/cable'
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write

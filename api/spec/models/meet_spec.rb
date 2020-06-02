@@ -1,4 +1,4 @@
-require 'rails_helper' # rubocop:disable Layout/EndOfLine
+require 'rails_helper'
 
 RSpec.describe Meet, type: :model do
   it { should have_many(:meetings).dependent(:destroy) }

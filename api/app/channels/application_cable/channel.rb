@@ -1,4 +1,4 @@
-module ApplicationCable # rubocop:disable Layout/EndOfLine
+module ApplicationCable
   class Channel < ActionCable::Channel::Base
   end
 end

@@ -1,4 +1,4 @@
-class MeetsController < ApplicationController # rubocop:disable Layout/EndOfLine
+class MeetsController < ApplicationController
   before_action :set_meet, only: %i[show update destroy]
 
   # GET /meets

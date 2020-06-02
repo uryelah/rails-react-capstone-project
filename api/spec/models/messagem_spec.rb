@@ -1,4 +1,4 @@
-require 'rails_helper' # rubocop:disable Layout/EndOfLine
+require 'rails_helper'
 
 RSpec.describe Messagem, type: :model do
   it { should belong_to(:conversation) }
