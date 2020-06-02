@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable
+# rubocop:disable all
 ActiveRecord::Schema.define(version: 2020_05_05_164423) do
   create_table "conversations", force: :cascade do |t|
     t.string "title"
@@ -81,4 +81,5 @@ ActiveRecord::Schema.define(version: 2020_05_05_164423) do
   add_foreign_key "user_meets", "meets"
   add_foreign_key "user_meets", "users"
 end
-# rubocop:enable
+# rubocop:enable all
+
