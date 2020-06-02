@@ -51,7 +51,10 @@ function mapActionsToProps(dispatch) {
 
 Page.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,
-  children: PropTypes.objectOf(PropTypes.any).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
 };

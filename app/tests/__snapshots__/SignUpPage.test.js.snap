@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpPage is rendered 1`] = `
+<main
+  className="main"
+>
+  <header>
+    <h1>
+      Sign up
+    </h1>
+    <small>
+      Hello there! Sign up and start meeting new friends
+    </small>
+  </header>
+  <form
+    className="form"
+  >
+    <label
+      htmlFor="email"
+    >
+      <input
+        className="input"
+        id="email"
+        placeholder="your@mail.com"
+        required={true}
+        type="email"
+      />
+    </label>
+    <label
+      htmlFor="password"
+    >
+      <input
+        className="input"
+        id="password"
+        placeholder="password"
+        required={true}
+        type="password"
+      />
+    </label>
+    <label
+      htmlFor="confirmPassword"
+    >
+      <input
+        className="input"
+        id="confirmPassword"
+        placeholder="confirm password"
+        required={true}
+        type="password"
+      />
+    </label>
+    <label
+      htmlFor="userName"
+    >
+      <input
+        className="input"
+        id="userName"
+        placeholder="username"
+        required={true}
+        type="text"
+      />
+    </label>
+    <button
+      className="btn btn--orange"
+      onClick={[Function]}
+      type="submit"
+    >
+      Sign up
+    </button>
+    <a
+      href="/sign_in"
+      onClick={[Function]}
+    >
+      Sign in
+    </a>
+  </form>
+  <a
+    className="back"
+    href="/"
+    onClick={[Function]}
+  >
+    &lt; Back
+  </a>
+</main>
+`;

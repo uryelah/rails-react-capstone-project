@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage is rendered 1`] = `
+<div
+  className="main"
+  style={
+    Object {
+      "height": "100vh",
+      "overflowY": "scroll",
+    }
+  }
+>
+  <nav
+    className="nav"
+  >
+    <a
+      className="main"
+      href="/"
+    >
+      <svg
+        className="circle"
+        height="50"
+        viewBox="0 0 100 100"
+        width="50"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="gradient"
+            x1="0%"
+            x2="0%"
+            y1="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              stopColor="#ec5200"
+            />
+            <stop
+              offset="100%"
+              stopColor="transparent"
+            />
+          </linearGradient>
+        </defs>
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="40"
+          stroke="url(#gradient)"
+          strokeWidth="13"
+          transform="rotate(90 50 50)"
+        />
+      </svg>
+      <div
+        className="text-container"
+      >
+        <span
+          className="text--light"
+        >
+          Circle
+        </span>
+      </div>
+    </a>
+    <ul
+      className="nav-row"
+    >
+      <li
+        className="btn"
+      >
+        <a
+          href="https://github.com/uryelah/rails-react-capstone-project.git"
+        >
+          Download
+        </a>
+      </li>
+      <li
+        className="btn"
+      >
+        <a
+          href="/sign_in/"
+          onClick={[Function]}
+        >
+          Sign In
+        </a>
+      </li>
+      <li
+        className="btn btn-translucid"
+      >
+        <a
+          href="/sign_up/"
+          onClick={[Function]}
+        >
+          Sign Up
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <header
+    className="header"
+  >
+    <article
+      className="cta"
+    >
+      <h1
+        className="cta-title"
+      >
+        Find your circle
+      </h1>
+      <p>
+        Groups based on your interests, personality type, online around the world, people that really get you.
+      </p>
+      <a
+        className="btn btn--orange"
+        href="/sign_up/"
+        onClick={[Function]}
+        type="button"
+      >
+        Start Free
+      </a>
+    </article>
+    <div
+      className="down"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      <svg
+        aria-hidden="true"
+        className="down-arrow"
+        data-icon="chevron-down"
+        data-prefix="fal"
+        focusable="true"
+        role="button"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className=""
+          d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </header>
+  <section
+    className="section--row"
+  >
+    <div
+      className="content--top"
+    >
+      <small
+        className="title-tip"
+      >
+        Simple and fast way to socialize
+      </small>
+      <h3
+        className="title"
+      >
+        Friendly chats with reliable people
+      </h3>
+    </div>
+    <div
+      className="content--left"
+    >
+      <h2
+        className="content-title"
+      >
+        People all over the world, online, just like you
+      </h2>
+      <p>
+        You will have the best tools to manage your friendships, remember to keep in touch, and keep information. Full control will save you from the stress of remembering conversation topics and important events.
+      </p>
+      <a
+        className="btn btn--orange"
+        href="/sign_up/"
+        onClick={[Function]}
+        type="button"
+      >
+        Learn more
+      </a>
+    </div>
+    <div
+      className="content--right--img"
+    >
+      <img
+        alt="Notebook screen"
+        src=""
+      />
+    </div>
+  </section>
+  <section
+    className="section--row-transparent"
+  >
+    <div
+      className="content--left--img"
+    >
+      <img
+        alt="Mobile screen"
+        src=""
+        style={
+          Object {
+            "width": "300px",
+          }
+        }
+      />
+    </div>
+    <div
+      className="content--right"
+    >
+      <h2
+        className="content-title"
+      >
+        People all over the world, online, just like you
+      </h2>
+      <p>
+        You will have the best tools to manage your friendships, remember to keep in touch, and keep information. Full control will save you from the stress of remembering conversation topics and important events.
+      </p>
+      <a
+        className="btn btn--orange"
+        href="/sign_up/"
+        onClick={[Function]}
+        type="button"
+      >
+        Learn more
+      </a>
+    </div>
+  </section>
+  <section
+    className="section--row--naked"
+  >
+    <div
+      className="content--top"
+    >
+      <small
+        className="title-tip"
+      >
+        People are already enjoying the service
+      </small>
+      <h3
+        className="title"
+      >
+        Look at what people have to say
+      </h3>
+    </div>
+  </section>
+  <section
+    className="section--column-transparent--header"
+  >
+    <p
+      className="cta-secondary"
+    >
+      Be with everyone online
+    </p>
+    <a
+      className="btn btn--orange"
+      href="/sign_up/"
+      onClick={[Function]}
+      type="button"
+    >
+      Start Free
+    </a>
+  </section>
+  <footer
+    className="footer"
+  >
+    <ul>
+      <li>
+        <a
+          className="main"
+          href="/"
+        >
+          <svg
+            className="circle"
+            height="50"
+            viewBox="0 0 100 100"
+            width="50"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient
+                id="gradient"
+                x1="0%"
+                x2="0%"
+                y1="0%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  stopColor="#ec5200"
+                />
+                <stop
+                  offset="100%"
+                  stopColor="transparent"
+                />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="50"
+              cy="50"
+              fill="none"
+              r="40"
+              stroke="url(#gradient)"
+              strokeWidth="13"
+              transform="rotate(90 50 50)"
+            />
+          </svg>
+          <div
+            className="text-container"
+          >
+            <span
+              className="text--dark"
+            >
+              Circle
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        Lafayette Ave 156, Brooklyn, NY, USA
+      </li>
+      <li>
+        35 St Andrew's St, Cambridge CB2 3AR, Great Britain
+      </li>
+      <li>
+        +347 853 106 681
+      </li>
+      <li
+        className="social-bar"
+      >
+        <a
+          className="social-link--fb"
+          href="/"
+        >
+          <i
+            className="fab fa-facebook-f"
+          />
+        </a>
+        <a
+          className="social-link--tw"
+          href="/"
+        >
+          <i
+            className="fab fa-twitter"
+          />
+        </a>
+        <a
+          className="social-link--ig"
+          href="/"
+        >
+          <i
+            className="fab fa-instagram"
+          />
+        </a>
+      </li>
+      <li>
+        Circle 2020. All rights reserved
+      </li>
+    </ul>
+  </footer>
+</div>
+`;

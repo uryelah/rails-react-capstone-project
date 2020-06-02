@@ -32,7 +32,10 @@ Section.propTypes = {
   transparent: PropTypes.string,
   header: PropTypes.string,
   naked: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.any),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+]),
 };
 
 Section.defaultProps = {

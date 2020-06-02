@@ -69,6 +69,7 @@ function LandingPage() {
           <small className={app['title-tip']}>People are already enjoying the service</small>
           <h3 className={app.title}>Look at what people have to say</h3>
         </div>
+        {/*
         <Slider className="slider" pauseOnHover slidesPerRow={1} arrows={false} dots swipe autoplay autoplaySpeed={5000}>
           {
             users.map(item => (
@@ -84,6 +85,7 @@ function LandingPage() {
             ))
           }
         </Slider>
+        */}
       </Section>
 
       <Section column="column" transparent="transparent" header="header">
