@@ -51,7 +51,7 @@
 
 ## About
 
-This project is a Meetup-like site for online only meetings.
+This project is a Meetup-like site for online-only meetings.
 
 <br/>
 <img src="./public/circle.gif" width="300px">
