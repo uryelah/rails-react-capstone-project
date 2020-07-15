@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List is rendered 1`] = `
+<div
+  aria-label="Close side navigation menu"
+  className="wrapper"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={-1}
+>
+  <nav
+    className="main"
+  >
+    <ul>
+      <li>
+        <i
+          aria-label="Open navigation menu"
+          className="fas fa-bars"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={-1}
+        />
+      </li>
+      <li>
+        <h1
+          className="title"
+        >
+          Meets
+        </h1>
+      </li>
+      <li>
+        <input
+          className="search-nav hidden"
+          onKeyDown={[Function]}
+          placeholder="Search..."
+          type="text"
+        />
+        <i
+          aria-label="Search"
+          className="fas fa-search search-ico"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={-1}
+        />
+      </li>
+    </ul>
+  </nav>
+  <main
+    className="main"
+  >
+    <div
+      className="main"
+    >
+      <a
+        className="main"
+        href="/"
+      >
+        <svg
+          className="circle"
+          height="50"
+          viewBox="0 0 100 100"
+          width="50"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="gradient"
+              x1="0%"
+              x2="0%"
+              y1="0%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                stopColor="#ec5200"
+              />
+              <stop
+                offset="100%"
+                stopColor="transparent"
+              />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="50"
+            cy="50"
+            fill="none"
+            r="40"
+            stroke="url(#gradient)"
+            strokeWidth="13"
+            transform="rotate(90 50 50)"
+          />
+        </svg>
+        <div
+          className="text-container"
+        >
+          <span
+            className="text--light"
+          >
+            Circle
+          </span>
+        </div>
+      </a>
+    </div>
+  </main>
+</div>
+`;

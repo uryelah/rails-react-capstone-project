@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPage is rendered 1`] = `
+<div
+  className="wrapper--favorites"
+>
+  <nav
+    className="main"
+  >
+    <ul>
+      <li>
+        <i
+          aria-label="Open navigation menu"
+          className="fas fa-bars"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={-1}
+        />
+      </li>
+      <li>
+        <a
+          href="/list/"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="ico"
+            data-icon="chevron-left"
+            data-prefix="fal"
+            focusable="true"
+            role="button"
+            viewBox="0 0 256 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              className=""
+              d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+        <h1
+          className="title"
+        >
+          Search
+        </h1>
+      </li>
+      <li>
+        <input
+          className="search-nav hidden"
+          onKeyDown={[Function]}
+          placeholder="Search..."
+          type="text"
+        />
+        <i
+          aria-label="Search"
+          className="fas fa-search search-ico"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={-1}
+        />
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="main"
+  >
+    <a
+      className="main"
+      href="/"
+    >
+      <svg
+        className="circle"
+        height="50"
+        viewBox="0 0 100 100"
+        width="50"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="gradient"
+            x1="0%"
+            x2="0%"
+            y1="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              stopColor="#ec5200"
+            />
+            <stop
+              offset="100%"
+              stopColor="transparent"
+            />
+          </linearGradient>
+        </defs>
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="40"
+          stroke="url(#gradient)"
+          strokeWidth="13"
+          transform="rotate(90 50 50)"
+        />
+      </svg>
+      <div
+        className="text-container"
+      >
+        <span
+          className="text--light"
+        >
+          Circle
+        </span>
+      </div>
+    </a>
+  </div>
+</div>
+`;
