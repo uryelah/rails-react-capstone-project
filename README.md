@@ -58,9 +58,15 @@ This project is a Meetup-like site for online-only meetings.
 
 ## About The App
 
+This project is a SPA remote groups and meetups application with a Rails API and React client.
+An user can create a meetup group, schedule the frequency of the meetings, and the attendee limit per meeting. 
+They can also browse all the groups, favorite them, and choose to join a group and, upon approval, join a meeting.
+
 -------
 
 ## Navigation
+
+This app is accessible with mouse and/or touch control.
 
 -------
 
@@ -112,19 +118,38 @@ For a better review experience run db:seeds beforehand.
 -------
 
 ### Built With
-
-
-## Available Commands
+This project was built using these technologies.
+* React
+* Rails
+* Redux
+* CSS3
 
 -------
 
 ## Contact
 
+👤 **Sarah Uryelah Silva Chamorro**
+
+- Github: [@uryelah](https://github.com/uryelah)
+- Twitter: [@sarah_chamorro](https://twitter.com/sarah_chamorro)
+- Linkedin: [Sharah Chamorro](https://www.linkedin.com/in/uryelah/)
+- Email: [sarahchamorro@gmail.com](sarahchamorro@gmail.com)
+
 -------
 
 ## Acknowledgements
+* [Microverse](https://www.microverse.org/)
+* [The Odin Project](https://www.theodinproject.com/)
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+-------
 
 ## CopyRight/Attributions
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
 -------
 
