@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/uryelah/rails-react-capstone-project" styles="overflow: visible">
-    <img src="./public/Screenshot_2020-07-28 Circle.png " alt="Logo" height="80">
+    <img src="./public/Screenshot_2020-07-28 Circle.png " alt="Logo" height="120">
   </a>
 
   <h1 align="center">
