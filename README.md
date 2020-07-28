@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/uryelah/rails-react-capstone-project">
+  <a href="https://github.com/uryelah/rails-react-capstone-project" styles="overflow: visible">
     <img src="./public/Screenshot_2020-07-28 Circle.png " alt="Logo" height="80">
   </a>
 
