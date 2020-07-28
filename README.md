@@ -37,6 +37,8 @@
 
 * [About](#about)
 * [About the App](#about-the-app)
+* [Features](#features)
+* [Future Features](#future-features)
 * [Navigation](#navigation)
 * [Characters](#characters)
 * [Views](#views)
@@ -63,6 +65,24 @@ An user can create a meetup group, schedule the frequency of the meetings, and t
 They can also browse all the groups, favorite them, and choose to join a group and, upon approval, join a meeting.
 
 -------
+
+## Features
+
+- Client-side routing
+
+- Rails API
+
+- Favorites page
+
+- Token-based authentication and athorizations
+
+## Future Features
+
+- Admin dashboard
+
+- Zoom integration
+
+- O-Auth integration for login and signup
 
 ## Navigation
 
